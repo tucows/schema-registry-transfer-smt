@@ -28,7 +28,9 @@ jobs:
       - name: Build with Maven
         run: mvn clean -B package --file pom.xml
 
-      - name: Publish to GitHub Packages Apache Maven
-        run: mvn clean deploy -s $GITHUB_WORKSPACE/settings.xml
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+      - name: Upload Jar
+        uses: actions/upload-artifact@v2
+        if: success() && matrix.java == '11'
+        with:
+          name: jar
+          path: target/
