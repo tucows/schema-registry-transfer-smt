@@ -46,6 +46,13 @@
         <system>github</system>
         <url>https://github.com/tucows/schema-registry-transfer-smt/issues</url>
     </issueManagement>
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Tucows Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/tucows/schema-registry-transfer-smt</url>
+        </repository>
+    </distributionManagement>
 
     <repositories>
         <repository>
