@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>cricket.jmoore</groupId>
@@ -9,12 +10,12 @@
     <description>
         A Kafka Connect Transform for copying Confluent Schema Registry schemas between different registries.
     </description>
-    <url>https://github.com/cricket007/schema-registry-transfer-smt</url>
+    <url>https://github.com/tucows/schema-registry-transfer-smt</url>
     <inceptionYear>2019</inceptionYear>
     <licenses>
         <license>
             <name>Apache License 2.0</name>
-            <url>https://github.com/cricket007/schema-registry-transfer-smt/LICENSE</url>
+            <url>https://github.com/tucows/schema-registry-transfer-smt/blob/master/LICENSE</url>
             <distribution>repo</distribution>
         </license>
     </licenses>
@@ -24,26 +25,27 @@
             <name>Jordan Moore</name>
             <url>https://github.com/cricket007</url>
             <roles>
-                <role>Owner</role>
+                <role>Owner (Original)</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>eddyv</id>
+            <name>Edward Vaisman</name>
+            <url>https://github.com/eddyv</url>
+            <roles>
+                <role>Maintainer</role>
             </roles>
         </developer>
     </developers>
     <scm>
-        <connection>scm:git:https://github.com/cricket007/schema-registry-transfer-smt.git</connection>
-        <developerConnection>scm:git:git@github.com:cricket007/schema-registry-transfer-smt.git</developerConnection>
-        <url>https://github.com/cricket007/schema-registry-transfer-smt</url>
+        <connection>scm:git:https://github.com/tucows/schema-registry-transfer-smt.git</connection>
+        <developerConnection>scm:git:git@github.com:tucows/schema-registry-transfer-smt.git</developerConnection>
+        <url>https://github.com/tucows/schema-registry-transfer-smt</url>
     </scm>
     <issueManagement>
         <system>github</system>
-        <url>https://github.com/cricket007/schema-registry-transfer-smt/issues</url>
+        <url>https://github.com/tucows/schema-registry-transfer-smt/issues</url>
     </issueManagement>
-    <distributionManagement>
-        <repository>
-            <id>bintray</id>
-            <name>bintray-releases</name>
-            <url>https://api.bintray.com/maven/${env.BINTRAY_REPO_OWNER}/${env.BINTRAY_REPO}/${project.artifactId}/;publish=1</url>
-        </repository>
-    </distributionManagement>
 
     <repositories>
         <repository>
@@ -291,7 +293,8 @@
                         </relocation>
                     </relocations>
                     <transformers>
-                        <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
+                        <transformer
+                                implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
                     </transformers>
                 </configuration>
                 <executions>
@@ -338,7 +341,7 @@
                         <!--<version>1.7</version>-->
                         <!--<style>GOOGLE</style>-->
                         <!--</googleJavaFormat>-->
-                        <removeUnusedImports />
+                        <removeUnusedImports/>
                         <importOrder>
                             <order>java,org,io.confluent,com,cricket.jmoore,</order>
                         </importOrder>
