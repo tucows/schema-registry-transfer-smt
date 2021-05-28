@@ -3,9 +3,7 @@
 
 name: Maven Package
 
-on:
-  release:
-    types: [ created ]
+on: workflow_dispatch
 
 jobs:
   build:
@@ -28,9 +26,12 @@ jobs:
       - name: Build with Maven
         run: mvn clean -B package --file pom.xml
 
-      - name: Upload Jar
-        uses: actions/upload-artifact@v2
-        if: success() && matrix.java == '11'
+      - name: Release
+        uses: softprops/action-gh-release@v1
         with:
-          name: jar
-          path: target/
+          name: test release
+          prerelease: true
+          files: |
+            ./target/schema-registry-transfer-smt-0.2.1.jar
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
